@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+int main()
+{
+    struct node *top = NULL, *newnode, *temp;
+    int n, value;
+
+    printf("Enter number of elements to insert: ");
+    scanf("%d", &n);
+
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%d", &value);
+
+        struct node *newnode = malloc(sizeof(struct node));
+        newnode->data = value;
+        newnode->next = top;  
+        top = newnode;
+    }
+
+    printf("\nStack stored in linked list:\n");
+    temp = top;
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+
+    return 0;
+}
